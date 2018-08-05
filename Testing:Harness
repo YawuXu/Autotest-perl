@@ -1,0 +1,30 @@
+ #if the original test script had hundreds of OKs, we would not be really interested on all those OKs. 
+ # The harness.pl script is just a sample usage of the Test::Harness module.
+ #It accepts one or more test files, runs them and analyzes the output they generated.
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+use Test::Harness qw(runtests);
+
+runtests @ARGV;
+
+
+$ perl ../harness.pl tests/t24.pl
+Test Summary Report
+-------------------
+tests/t24.pl (Wstat: 256 Tests: 45 Failed: 1)
+  Failed test:  3
+  Non-zero exit status: 1
+Files=1, Tests=45,  0 wallclock secs
+   ( 0.01 usr  0.00 sys +  0.02 cusr  0.00 csys =  0.03 CPU)
+Result: FAIL
+Failed 1/1 test programs. 1/45 subtests failed.
+
+
+$ perl ../harness.pl tests/t11.pl
+tests/t11.......ok
+All tests successful.
+Files=1, Tests=3,  0 wallclock secs
+  ( 0.01 usr  0.00 sys +  0.01 cusr  0.01 csys =  0.03 CPU)
+Result: PASS
